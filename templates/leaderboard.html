@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body  class="bg-gradient-to-r from-purple-500 to-indigo-600 min-h-screen flex flex-col items-center py-10">
+    <h1 class="text-3xl font-bold mb-6">🏆 Leaderboard</h1>
+    <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+        <table class="w-full text-left">
+            <thead>
+                <tr>
+                    <th class="py-2">#</th>
+                    <th class="py-2">Player</th>
+                    <th class="py-2">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in players %}
+                <tr class="border-t">
+                    <td class="py-2">{{ loop.index }}</td>
+                    <td class="py-2 font-semibold">{{ p.username }}</td>
+                    <td class="py-2">{{ p.score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="mt-6 text-center">
+            <a href="{{ url_for('index') }}" class="text-blue-500 underline">Back to clicking...</a>
+        </div>
+    </div>
+</body>
+</html>

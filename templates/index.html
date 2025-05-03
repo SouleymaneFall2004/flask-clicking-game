@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clicker Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-center h-screen flex items-center justify-center"
+      style="background-image: url('https://images.alphacoders.com/958/958190.png');">
+
+<div class="bg-[#FFFADE] bg-opacity-75 p-8 rounded-2xl shadow-2xl text-center">
+    <h1 class="text-3xl font-bold mb-2">Welcome, {{ player.username }}!</h1>
+    <p class="text-xl mb-1">Score : <span id="score-display" class="font-mono">{{ player.score }}</span></p>
+    <p class="text-lg mb-6 text-gray-600">Multiplier : <span id="multiplier-display"
+                                                             class="font-mono">x{{ player.multiplier }}</span></p>
+
+    <div>
+        <button id="click-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl mb-4 transition">
+            Click Me!
+        </button>
+    </div>
+    <button id="click-boost" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl mb-4 transition">
+        Boost (<span id="boost-cost">50</span> points)
+    </button>
+    <div class="mt-6 items-center">
+        <a href="{{ url_for('leaderboard') }}" class="text-indigo-700 underline">leaderboard</a>
+        <a href="{{ url_for('logout') }}" class="text-red-700 underline">Logout</a>
+    </div>
+    <a href="{{ url_for('reset') }}" class="text-gray-700">Reset stats</a>
+</div>
+
+</body>
+<script src="{{ url_for('static', filename='click.js') }}"></script>
+</html>
